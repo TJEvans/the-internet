@@ -1,7 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
   function prepareValidation(stepsToPerform, expectedResults){
-  toggleInputControls();
+  toggleInputControls(false);
   document.getElementById('observations').value = '';
   document.getElementById('validationStep').innerText = stepsToPerform;
   document.getElementById('expectedResults').innerText = expectedResults;
@@ -10,24 +10,24 @@
   function submitFailure() {
   var obs = document.getElementById('observations');
   obs.value = obs.value + ' - FAILED';
-  toggleInputControls();
+  toggleInputControls(true);
   }
 
   function submitSuccess() {
   var obs = document.getElementById('observations');
   obs.value = obs.value + ' - PASSED';
-  toggleInputControls();
+  toggleInputControls(true);
   }
 
-  function toggleInputControls() {
+  function toggleInputControls(wantDisabled) {
   var sBtn = document.getElementById('successButton');
-  sBtn.disabled = !sBtn.disabled;
+  sBtn.disabled = wantDisabled;
 
   var fBtn = document.getElementById('failureButton');
-  fBtn.disabled = !fBtn.disabled;
+  fBtn.disabled = wantDisabled;
 
   var obs = document.getElementById('observations');
-  obs.disabled = !obs.disabled;
+  obs.disabled = wantDisabled;
   };
 </script>
 <div>
