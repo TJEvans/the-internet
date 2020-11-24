@@ -1,0 +1,48 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+  function prepareValidation(stepsToPerform, expectedResults){
+  toggleInputControls();
+  document.getElementById('observations').value = '';
+  document.getElementById('validationStep').innerText = stepsToPerform;
+  document.getElementById('expectedResults').innerText = expectedResults;
+  };
+
+  function submitFailure() {
+  var obs = document.getElementById('observations');
+  obs.value = obs.value + ' - FAILED';
+  toggleInputControls();
+  }
+
+  function submitSuccess() {
+  var obs = document.getElementById('observations');
+  obs.value = obs.value + ' - PASSED';
+  toggleInputControls();
+  }
+
+  function toggleInputControls() {
+  var sBtn = document.getElementById('successButton');
+  sBtn.disabled = !sBtn.disabled;
+
+  var fBtn = document.getElementById('failureButton');
+  fBtn.disabled = !fBtn.disabled;
+
+  var obs = document.getElementById('observations');
+  obs.disabled = !obs.disabled;
+  };
+</script>
+<div>
+  <h4>Manual Verificaiton Step</h4>
+  <h5 class="subheader" id="validationStep">Validation Step Goes Here</h5>
+  <h5 class="subheader" id="expectedResults">Expected Results Goes Here</h5>
+  </br>
+  <h4 class=subheader>Observations:</h4>
+  </br>
+  <form id="user-inputs" autocomplete="off">
+    <label class="subheader">What did you Observe?</label>
+    <textarea autofocus required id="observations" name="observations" rows="4" cols="60">
+    </textarea>
+    <label class="subheader">The verification was?</label>
+    <button id="successButton" type="button" onclick="submitSuccess()">Succesful</button>
+    <button id="failureButton" type="button" onclick="submitFailure()">Failure</button>
+  </form>
+<div>

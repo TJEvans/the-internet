@@ -281,6 +281,10 @@ class Public < Sinatra::Base
     erb :dynamic_controls
   end
 
+  get '/manual_validation' do
+    erb :manual_validation
+  end
+
   get '/dynamic_loading' do
     erb :dynamic_loading
   end
