@@ -7,8 +7,3 @@ vendor/*
 .rbenv-version
 .ruby-version
 .rvmrc
-/.vs/the-internet/v16/.suo
-/.vs/slnx.sqlite
-/.vs/VSWorkspaceState.json
-/.vs/the-internet/v16/TestStore/0/testlog.manifest
-/.vs/the-internet/v16/TestStore/0/000.testlog
